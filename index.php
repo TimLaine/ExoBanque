@@ -10,15 +10,7 @@ $comptetim3 = new Compte("PEL",200,"€",$tim);
 $comptetom = new Compte("Rare",12,"€",$tom);
 $comptetom2 = new Compte("Livret B",67,"$",$tom);
 $comptetom3 = new Compte("PNL",2202002,"£",$tom);
-
-echo $comptetim->getSolde();
-echo "<br>";
-$comptetim->debit(50);
-echo $comptetim->getSolde();
-echo "<br>";
-$comptetim->credit(100);
-echo $comptetim->getSolde();
-echo "<br>";
+$comptetim->debit(200);
 echo $tim->getInfos();
 echo $tom->getInfos();
 ?>
