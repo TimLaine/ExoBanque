@@ -46,5 +46,19 @@ Class Titulaire{
     public function ajoutCompte(Compte $compte){
         $this->_comptes [] = $compte;
     }
+    public function getInfos(){
+        $result = "";
+        $result .= "<h1>$this->_prenom $this->_nom</h1>";
+        $result .= "Date de naissance : $this->_birth <br>";
+        $result .= "Vit à $this->_ville <br>";
+        foreach($this->_comptes as $compte){
+            $result .= "$compte";
+        }
+        return $result;
+    }
+    public function __toString(){
+        $result = "$this->_prenom $this->_nom";
+        return $result;
+    }
 }
 ?>

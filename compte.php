@@ -42,5 +42,9 @@ Class Compte{
     public function credit($somme){
         $this->_solde = $this->_solde + $somme;
     }
+    public function __toString(){
+        $result = "<h3>Compte $this->_libel</h3>Solde sur le compte : $this->_solde $this->_devise <br>Titulaire du compte : $this->_titulaire";
+        return $result;
+    }
 }
 ?>

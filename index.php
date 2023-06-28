@@ -15,4 +15,5 @@ echo "<br>";
 $comptetim->credit(100);
 echo $comptetim->getSolde();
 echo "<br>";
+echo $tim->getInfos();
 ?>
