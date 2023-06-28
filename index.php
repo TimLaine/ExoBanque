@@ -3,7 +3,7 @@ include "compte.php";
 include "titulaire.php";
 
 $tim = new Titulaire("Lainé","Timothée","23 mar 1996","Strasbourg");
-$tom = new Titulaire("Lénai","Tomithée","12 feb 1996","Belfort");
+$tom = new Titulaire("Lénai","Tomithée","12 feb 1839","Belfort");
 $comptetim = new Compte("Courant",100,"€",$tim);
 $comptetim2 = new Compte("Livret A",50,"€",$tim);
 $comptetim3 = new Compte("PEL",200,"€",$tim);
