@@ -2,14 +2,16 @@
 Class Titulaire{
     private string $_nom;
     private string $_prenom;
-    private string $_birth;
+    private DateTime $_birth;
+    private $_age;
     private string $_ville;
     private array $_comptes;
 
     public function __construct(string $nom, string $prenom, string $birth, string $ville){
         $this->_nom = $nom;
         $this->_prenom = $prenom;
-        $this->_birth = $birth;
+        $this->_birth = new DateTime($birth);
+        $this->_age = $this->calcAge();
         $this->_ville = $ville;
         $this->_comptes = [];
     }
@@ -21,6 +23,9 @@ Class Titulaire{
     }
     public function getBirth(){
         return $this->_birth;
+    }
+    public function getAge(){
+        return $this->_age;
     }
     public function getVille(){
         return $this->_ville;
@@ -46,10 +51,17 @@ Class Titulaire{
     public function ajoutCompte(Compte $compte){
         $this->_comptes [] = $compte;
     }
+    public function calcAge():string
+    {
+        $today = new DateTime();
+        $age = $today->diff($this->_birth);
+        return $age->y;
+    }
     public function getInfos(){
         $result = "";
         $result .= "<h1>$this->_prenom $this->_nom</h1>";
-        $result .= "Date de naissance : $this->_birth <br>";
+        $result .= "Date de naissance : ". $this->_birth->format('d m Y') ."<br>";
+        $result .= "Age : $this->_age ans<br>";
         $result .= "Vit à $this->_ville <br>";
         foreach($this->_comptes as $compte){
             $result .= "$compte";
