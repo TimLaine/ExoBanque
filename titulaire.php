@@ -2,11 +2,12 @@
 Class Titulaire{
     private string $_nom;
     private string $_prenom;
+    // Using DateTime to be able to get an age
     private DateTime $_birth;
     private $_age;
     private string $_ville;
     private array $_comptes;
-
+// Just the usual functions, get, set and construct
     public function __construct(string $nom, string $prenom, string $birth, string $ville){
         $this->_nom = $nom;
         $this->_prenom = $prenom;
@@ -48,15 +49,18 @@ Class Titulaire{
     public function setComptes($ville){
         $this->_comptes = $ville;
     }
+    // Functions to add several accounts to one user, using the same function as the one in exoLivre
     public function ajoutCompte(Compte $compte){
         $this->_comptes [] = $compte;
     }
+    // Function using DateTime to get an age
     public function calcAge():string
     {
         $today = new DateTime();
         $age = $today->diff($this->_birth);
         return $age->y;
     }
+    // Function to get all infos on a user, with the details of all accounts too
     public function getInfos(){
         $result = "";
         $result .= "<h1>$this->_prenom $this->_nom</h1>";
@@ -68,6 +72,7 @@ Class Titulaire{
         }
         return $result;
     }
+    // toString used to display the user's name with the account
     public function __toString(){
         $result = "$this->_prenom $this->_nom";
         return $result;
