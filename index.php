@@ -1,6 +1,6 @@
 <?php
-include "compte.php";
-include "titulaire.php";
+include "Compte.php";
+include "Titulaire.php";
 
 $tim = new Titulaire("Lainé","Timothée","23 mar 1996","Strasbourg");
 $tom = new Titulaire("Lénai","Tomithée","12 feb 1839","Belfort");
