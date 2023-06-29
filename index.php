@@ -13,4 +13,7 @@ $comptetom3 = new Compte("PNL",2202002,"£",$tom);
 $comptetim->debit(200);
 echo $tim->getInfos();
 echo $tom->getInfos();
+$comptetim->virement($comptetom,100);
+echo $tim->getInfos();
+echo $tom->getInfos();
 ?>

@@ -46,5 +46,9 @@ Class Compte{
         $result = "<h3>Compte $this->_libel</h3>Solde sur le compte : $this->_solde $this->_devise <br>Titulaire du compte : $this->_titulaire";
         return $result;
     }
+    public function virement($compte2, $somme){
+        $this->debit($somme);
+        $compte2->credit($somme);
+    }
 }
 ?>
